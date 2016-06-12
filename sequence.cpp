@@ -1,5 +1,4 @@
 #include <iostream>
-#include <memory.h>
 
 #define SIZE_INT sizeof(int)
 
@@ -9,14 +8,8 @@ class SequenceGenerator
 {
     public:
         SequenceGenerator(int *digits, int size) {
-            this->digits = (int*) malloc(sizeof(int) * size);
-            memset(this->digits, 0, sizeof(int) * size);
-
-            if (size > 0) {
-                this->sizeResult = 1;
-            } else {
-                this->sizeResult = 0;
-            }
+            this->digits = (int*) malloc(size * SIZE_INT);
+			this->sizeResult = size > 0 ? 1 : 0;
 
             for (int i = 0; i < size; ++i) {
                 this->digits[i] = digits[i];
@@ -70,7 +63,7 @@ class SequenceGenerator
 
 int main(int argc, char* argv[]) {
 	if (argc > 1) {
-		int *digits = (int*) malloc((argc - 1) * sizeof(int));
+		int *digits = (int*) malloc((argc - 1) * SIZE_INT);
 
 		for (int i = 0; i < argc - 1; ++i) {
 		    digits[i] = atoi(argv[i + 1]);
