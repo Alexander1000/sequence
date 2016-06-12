@@ -90,6 +90,7 @@ int main(int argc, char* argv[]) {
 		}
 
 		free(map);
+		free(digits);
 	} else {
 		cout << "Not ok\n";
 	}
