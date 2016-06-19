@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 #define SIZE_INT sizeof(int)
 
@@ -75,7 +76,11 @@ int main(int argc, char* argv[]) {
 
 		for (int i = 0; i < seq.sizeResult; ++i) {
 		    for (int j = 0; j < argc - 1; ++j) {
-		        cout << map[i][j] << " ";
+		        cout << map[i][j];
+		        
+		        if (j != argc - 2) {
+		        	cout << " ";
+				}
 		    }
 
 		    cout << "\n";
