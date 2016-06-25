@@ -82,7 +82,7 @@ class SequenceGenerator
 				memcpy(distNext, digits, i * SIZE_INT);
 				memcpy(distNext + i, digits + (i + 1), (size - i - 1) * SIZE_INT);
 
-				if (size > 0 && (this->width <= 0 || (this->width > 0 && sourceLength < this->width))) {
+				if (size > 0 && (this->width <= 0 || sourceLength < this->width)) {
 					/**
 					 * Продолжаем генерировать последовательность когда:
 					 * 1) Есть еще данные для последовательности (size > 0)
@@ -95,7 +95,7 @@ class SequenceGenerator
 	            	this->genSeq(sourceNext, distNext, size - 1);
 				}
 
-				if (size > 1 && (this->width <= 0 || (this->width > 0 && sourceLength + 1 < this->width))) {
+				if (size > 1 && (this->width <= 0 || sourceLength + 1 < this->width)) {
 					free(sourceNext);
 					free(distNext);
 				}
